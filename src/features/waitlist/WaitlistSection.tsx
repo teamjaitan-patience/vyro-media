@@ -13,7 +13,7 @@ export function WaitlistSection() {
                     LET'S BUILD SOMETHING GREAT
                 </h2>
                 <p className="text-zinc-400 mb-10 max-w-xl leading-relaxed text-lg">
-                    While we build this site, we are actively taking on new clients. Drop your email below, or reach out to the founder directly to discuss your next project.
+                    While we build this site, we are actively taking on new clients. Reach out to the founder directly to discuss your next project.
                 </p>
 
 
