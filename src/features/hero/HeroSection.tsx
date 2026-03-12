@@ -15,7 +15,7 @@ export function HeroSection() {
                     initial={{ opacity: 0, y: 20, scale: 0.95 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-                    className="mb-12 relative w-[800px] h-[300px] sm:w-[1000px] sm:h-[400px]"
+                    className="mb-8 md:mb-12 relative w-[280px] h-[105px] sm:w-[400px] sm:h-[150px] md:w-[800px] md:h-[300px]"
                 >
                     <Image
                         src={vyroLogo}
@@ -26,7 +26,7 @@ export function HeroSection() {
                         unoptimized
                     />
                 </motion.div>
-                <div className="mb-6 inline-block rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-sm font-medium tracking-wide text-zinc-300 backdrop-blur-md">
+                <div className="mb-6 inline-block rounded-full border border-white/10 bg-white/5 px-3 md:px-4 py-1.5 text-xs md:text-sm font-medium tracking-wide text-zinc-300 backdrop-blur-md">
                     VYRO: Beyond Media. Beyond Boundaries.
                 </div>
                 <TextGenerateEffect className="max-w-4xl" words="THE FUTURE OF DIGITAL DOMINANCE IS" suffix="LOADING..." />
