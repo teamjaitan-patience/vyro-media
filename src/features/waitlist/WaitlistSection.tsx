@@ -12,15 +12,12 @@ export function WaitlistSection() {
                 <h2 className="text-4xl md:text-5xl font-black tracking-widest uppercase mb-6 drop-shadow-lg">
                     LET'S BUILD SOMETHING GREAT
                 </h2>
-                <p className="text-zinc-400 mb-10 max-w-xl leading-relaxed text-lg">
-                    While we build this site, we are actively taking on new clients. Reach out to the founder directly to discuss your next project.
+                <p className="text-zinc-400 mb-12 max-w-xl leading-relaxed text-lg">
+                    Our digital experience is currently under construction, but our studio is actively partnering with new clients. Reach out directly to discuss your project.
                 </p>
 
-
-
-                <div className="mt-12 flex flex-col items-center">
-                    <p className="text-sm text-zinc-500 mb-4">In the meantime, connect with the founder:</p>
-                    <div className="flex items-center gap-6">
+                <div className="flex flex-col items-center">
+                    <div className="flex items-center gap-8">
                         <Link 
                             href="https://www.linkedin.com/in/jaitanpuri/" 
                             target="_blank" 
