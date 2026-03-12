@@ -16,7 +16,7 @@ export const TextGenerateEffect = ({
     let wordsArray = words.split(" ");
     useEffect(() => {
         animate(
-            "span",
+            ".word",
             {
                 opacity: 1,
             },
@@ -36,16 +36,21 @@ export const TextGenerateEffect = ({
                             return (
                                 <motion.span
                                     key={word + idx}
-                                    className="dark:text-white text-black opacity-0"
+                                    className="dark:text-white text-black opacity-0 word"
                                 >
                                     {word}{" "}
                                 </motion.span>
                             );
                         })}
                         {suffix && (
-                            <span className="animate-pulse inline-block text-indigo-400">
+                            <motion.span 
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ duration: 2, delay: wordsArray.length * 0.2 }}
+                                className="animate-pulse inline-block text-indigo-400"
+                            >
                                 {suffix}
-                            </span>
+                            </motion.span>
                         )}
                     </motion.div>
                 </div>
