@@ -59,6 +59,8 @@ function CarouselCard({ site, containerRef }: { site: typeof WEBSITES[0], contai
           src={site.image}
           alt={site.name}
           fill
+          quality={100}
+          sizes="(max-width: 768px) 85vw, (max-width: 1200px) 600px, 800px"
           className="object-cover object-top transition-transform duration-700 group-hover:scale-105 pointer-events-none"
           onError={(e) => {
             e.currentTarget.style.display = 'none';
