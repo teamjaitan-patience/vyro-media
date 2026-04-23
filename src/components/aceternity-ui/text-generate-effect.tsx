@@ -22,7 +22,7 @@ export const TextGenerateEffect = ({
             },
             {
                 duration: 2,
-                delay: stagger(0.2),
+                delay: stagger(0.15),
             }
         );
     }, [animate]);
@@ -30,13 +30,13 @@ export const TextGenerateEffect = ({
     return (
         <div className={cn("font-bold", className)}>
             <div className="mt-4">
-                <div className="dark:text-white text-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl uppercase leading-snug tracking-wide">
+                <div className="leading-snug tracking-wide">
                     <motion.div ref={scope} className="inline-block relative w-full">
                         {wordsArray.map((word, idx) => {
                             return (
                                 <motion.span
                                     key={word + idx}
-                                    className="dark:text-white text-black opacity-0 word"
+                                    className="opacity-0 word"
                                 >
                                     {word}{" "}
                                 </motion.span>
@@ -46,8 +46,8 @@ export const TextGenerateEffect = ({
                             <motion.span 
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
-                                transition={{ duration: 2, delay: wordsArray.length * 0.2 }}
-                                className="animate-pulse inline-block text-indigo-400"
+                                transition={{ duration: 2, delay: wordsArray.length * 0.15 }}
+                                className="animate-pulse inline-block text-[#C8A96E]"
                             >
                                 {suffix}
                             </motion.span>

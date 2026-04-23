@@ -1,7 +1,6 @@
 "use client";
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
-import Link from "next/link";
 import { useState } from "react";
 
 export const HoverEffect = ({
@@ -9,20 +8,20 @@ export const HoverEffect = ({
     className,
 }: {
     items: {
+        icon: string;
         title: string;
-        description: string;
-        link: string;
+        body: string;
+        tags: string[];
     }[];
     className?: string;
 }) => {
     let [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
     return (
-        <div className={cn("grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 py-10", className)}>
+        <div className={cn("grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5", className)}>
             {items.map((item, idx) => (
-                <Link
-                    href={item?.link}
-                    key={item?.link + idx}
+                <div
+                    key={idx}
                     className="relative group block p-2 h-full w-full"
                     onMouseEnter={() => setHoveredIndex(idx)}
                     onMouseLeave={() => setHoveredIndex(null)}
@@ -30,7 +29,7 @@ export const HoverEffect = ({
                     <AnimatePresence>
                         {hoveredIndex === idx && (
                             <motion.span
-                                className="absolute inset-0 h-full w-full bg-neutral-200 dark:bg-slate-800/[0.8] block rounded-2xl"
+                                className="absolute inset-0 h-full w-full bg-[#C8A96E]/10 block rounded-2xl"
                                 layoutId="hoverBackground"
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1, transition: { duration: 0.15 } }}
@@ -38,17 +37,26 @@ export const HoverEffect = ({
                             />
                         )}
                     </AnimatePresence>
-                    <div className="rounded-xl h-full w-full p-4 overflow-hidden bg-black border border-white/[0.2] group-hover:border-slate-700 relative z-20 flex flex-col justify-center items-center text-center">
-                        <div className="relative z-50">
-                            <div className="p-4">
-                                <h4 className="text-zinc-100 font-bold tracking-wide mt-2 text-xl">{item.title}</h4>
-                                <p className="mt-4 text-zinc-400 tracking-wide leading-relaxed text-sm">
-                                    {item.description}
-                                </p>
-                            </div>
+                    <div className="rounded-xl h-full w-full p-7 bg-white border border-[#E8E4DE] group-hover:border-[#C8A96E]/50 relative z-20 flex flex-col transition-colors duration-300">
+                        <span className="text-4xl mb-5 block">{item.icon}</span>
+                        <h3 className="font-display text-xl font-bold text-[#111111] mb-3 leading-tight">
+                            {item.title}
+                        </h3>
+                        <p className="text-[#6B6B6B] text-sm leading-relaxed flex-1 mb-5">
+                            {item.body}
+                        </p>
+                        <div className="flex flex-wrap gap-2">
+                            {item.tags.map((tag) => (
+                                <span
+                                    key={tag}
+                                    className="text-xs font-medium px-3 py-1 rounded-full bg-[#F2EFE9] text-[#6B6B6B] border border-[#E8E4DE]"
+                                >
+                                    {tag}
+                                </span>
+                            ))}
                         </div>
                     </div>
-                </Link>
+                </div>
             ))}
         </div>
     );

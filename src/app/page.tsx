@@ -1,21 +1,60 @@
+import { Navbar } from "@/features/navbar/Navbar";
 import { HeroSection } from "@/features/hero/HeroSection";
+import { StatsTicker } from "@/features/stats/StatsTicker";
+import { ManifestoSection } from "@/features/manifesto/ManifestoSection";
 import { ServicesSection } from "@/features/services/ServicesSection";
-import { WaitlistSection } from "@/features/waitlist/WaitlistSection";
+import { AIEdgeSection } from "@/features/ai-edge/AIEdgeSection";
+import { FounderSection } from "@/features/founder/FounderSection";
+import { AudienceSection } from "@/features/audience/AudienceSection";
+import { ProcessSection } from "@/features/process/ProcessSection";
+import { PackagesSection } from "@/features/packages/PackagesSection";
+import { TestimonialsSection } from "@/features/testimonials/TestimonialsSection";
+import { FAQSection } from "@/features/faq/FAQSection";
+import { FooterCTA } from "@/features/footer-cta/FooterCTA";
+import { Footer } from "@/features/footer/Footer";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-background flex flex-col items-center">
-      <header className="absolute top-0 left-0 w-full z-50 p-6 flex justify-between items-center max-w-7xl mx-auto right-0">
-        <div className="text-2xl font-black tracking-widest uppercase text-white drop-shadow-md">VYRO</div>
-      </header>
+    <main className="min-h-screen bg-white">
+      {/* Section 01 — Navigation */}
+      <Navbar />
 
+      {/* Section 02 — Hero */}
       <HeroSection />
-      <ServicesSection />
-      <WaitlistSection />
 
-      <footer className="w-full py-8 text-center text-zinc-500 text-sm border-t border-white/5 bg-zinc-950/80">
-        <p className="tracking-wide">Founder: Jaitan Puri | vyromedia.in</p>
-      </footer>
+      {/* Section 03 — Stats Ticker */}
+      <StatsTicker />
+
+      {/* Section 04 — Brand Manifesto */}
+      <ManifestoSection />
+
+      {/* Section 05 — Services */}
+      <ServicesSection />
+
+      {/* Section 06 — AI Edge */}
+      <AIEdgeSection />
+
+      {/* Section 07 — Founder Story */}
+      <FounderSection />
+
+      {/* Section 08 — Who We Build For */}
+      <AudienceSection />
+
+      {/* Section 09 — Process */}
+      <ProcessSection />
+
+      {/* Section 10 — Website Packages */}
+      <PackagesSection />
+
+      {/* Section 11 — Testimonials + Work Placeholder */}
+      <TestimonialsSection />
+
+      {/* Section 12 — FAQ */}
+      <FAQSection />
+
+      {/* Section 13 — Footer CTA + Footer */}
+      <FooterCTA />
+      <Footer />
     </main>
   );
 }
