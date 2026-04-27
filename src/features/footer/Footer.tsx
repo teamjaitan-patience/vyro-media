@@ -107,7 +107,14 @@ export function Footer() {
             <div className="flex flex-col gap-4">
               <h4 className="font-sans font-bold text-sm text-[#0A0A0A] mb-2">Connect</h4>
               <a href="mailto:vyromedia.in@gmail.com" className="font-sans text-sm text-[#737373] hover:text-[#0A0A0A] transition-colors">Email Us</a>
-              <a href="/#contact" className="font-sans text-sm text-[#737373] hover:text-[#0A0A0A] transition-colors">Book a Call</a>
+              <button 
+                data-cal-link="jaitanpuri/vyromedia"
+                data-cal-namespace="vyromedia"
+                data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
+                className="font-sans text-left text-sm text-[#737373] hover:text-[#0A0A0A] transition-colors cursor-pointer"
+              >
+                Book a Call
+              </button>
             </div>
           </div>
         </BlurFade>

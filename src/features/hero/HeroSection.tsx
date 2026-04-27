@@ -90,12 +90,14 @@ export function HeroSection() {
             >
               See Our Work
             </a>
-            <a
-              href="#contact"
-              className="bg-white text-[#0A0A0A] border border-[#e5e5e5] px-8 py-4 rounded-full font-sans font-semibold text-sm hover:bg-[#f4f4f5] transition-colors duration-300"
+            <button
+              data-cal-link="jaitanpuri/vyromedia"
+              data-cal-namespace="vyromedia"
+              data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
+              className="bg-white text-[#0A0A0A] border border-[#e5e5e5] px-8 py-4 rounded-full font-sans font-semibold text-sm hover:bg-[#f4f4f5] transition-colors duration-300 cursor-pointer"
             >
               Start a Project
-            </a>
+            </button>
           </div>
         </motion.div>
 

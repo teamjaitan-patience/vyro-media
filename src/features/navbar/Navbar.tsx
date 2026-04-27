@@ -61,12 +61,14 @@ export function Navbar() {
           </nav>
 
           {/* CTA */}
-          <a
-            href="/#contact"
-            className="hidden md:block bg-[#0A0A0A] text-white px-5 py-2.5 rounded-full text-xs font-bold tracking-wide hover:bg-[#1a1a1a] transition-colors"
+          <button
+            data-cal-link="jaitanpuri/vyromedia"
+            data-cal-namespace="vyromedia"
+            data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
+            className="hidden md:block bg-[#0A0A0A] text-white px-5 py-2.5 rounded-full text-xs font-bold tracking-wide hover:bg-[#1a1a1a] transition-colors cursor-pointer"
           >
             START PROJECT
-          </a>
+          </button>
 
           {/* Mobile Menu Toggle */}
           <button
@@ -101,13 +103,15 @@ export function Navbar() {
                 </a>
               ))}
             </nav>
-            <a 
-              href="/#contact" 
+            <button 
               onClick={() => setMenuOpen(false)}
-              className="mt-4 bg-[#0A0A0A] text-white px-8 py-4 rounded-full text-center font-sans font-bold text-lg tracking-wide hover:bg-[#1a1a1a] transition-colors"
+              data-cal-link="jaitanpuri/vyromedia"
+              data-cal-namespace="vyromedia"
+              data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
+              className="mt-4 bg-[#0A0A0A] text-white px-8 py-4 rounded-full text-center font-sans font-bold text-lg tracking-wide hover:bg-[#1a1a1a] transition-colors cursor-pointer w-full"
             >
               Start a Project →
-            </a>
+            </button>
           </motion.div>
         )}
       </AnimatePresence>

@@ -1,6 +1,7 @@
 "use client";
 
 import { BlurFade } from "@/components/magic-ui/blur-fade";
+import { InteractiveHoverButton } from "@/components/magic-ui/interactive-hover-button";
 import Image from "next/image";
 import { useRef, useState } from "react";
 import { useInView } from "framer-motion";
@@ -80,12 +81,11 @@ export function FounderSection() {
               We did not hire for resumes. We hired for obsession. The VYRO crew is a handpicked group of cinematographers, editors, strategists, photographers, and visual artists who share one belief: that your story deserves to be told at the highest level it possibly can be. No shortcuts. No templates. No one phoning it in.
             </p>
 
-            <button
+            <InteractiveHoverButton
               onClick={() => setIsTeamDrawerOpen(true)}
-              className="inline-flex items-center font-sans font-bold text-sm tracking-widest uppercase border-b-2 border-[#0A0A0A] pb-2 hover:opacity-50 transition-opacity"
             >
               MEET THE CREW
-            </button>
+            </InteractiveHoverButton>
           </BlurFade>
         </div>
       </div>

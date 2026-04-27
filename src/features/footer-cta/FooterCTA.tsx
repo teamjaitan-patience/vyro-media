@@ -3,6 +3,7 @@
 import { BlurFade } from "@/components/magic-ui/blur-fade";
 import { DotPattern } from "@/components/magic-ui/dot-pattern";
 import { AnimatedReveal } from "@/components/ui/AnimatedReveal";
+import { InteractiveHoverButton } from "@/components/magic-ui/interactive-hover-button";
 
 export function FooterCTA() {
   return (
@@ -28,10 +29,21 @@ export function FooterCTA() {
           </h2>
         </BlurFade>
 
-        <BlurFade delay={0.3} inView>
-          <p className="font-sans font-medium text-xl md:text-2xl text-[#a3a3a3] max-w-2xl mx-auto mb-16">
+        <BlurFade delay={0.3} inView className="flex flex-col items-center">
+          <p className="font-sans font-medium text-xl md:text-2xl text-[#a3a3a3] max-w-2xl mx-auto mb-12">
             Stop blending in. Let's build a brand that looks like a film and converts like strategy.
           </p>
+          
+          <div className="mb-16">
+            <InteractiveHoverButton
+              data-cal-link="jaitanpuri/vyromedia"
+              data-cal-namespace="vyromedia"
+              data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
+            >
+              Book a Call
+            </InteractiveHoverButton>
+          </div>
+
           <div className="flex items-center gap-4 justify-center">
             <div className="h-px w-16 bg-white/10" />
             <span className="text-white/20 text-xs tracking-widest uppercase">vyromedia.in</span>

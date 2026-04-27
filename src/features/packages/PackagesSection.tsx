@@ -1,6 +1,7 @@
 "use client";
 
 import { BlurFade } from "@/components/magic-ui/blur-fade";
+import { InteractiveHoverButton } from "@/components/magic-ui/interactive-hover-button";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import Image from "next/image";
@@ -121,12 +122,13 @@ export function PackagesSection() {
 
         <BlurFade delay={0.3} inView>
           <div className="flex flex-col md:flex-row items-center justify-center gap-6">
-            <a
-              href="/#contact"
-              className="inline-flex items-center justify-center bg-[#0A0A0A] text-white px-10 py-5 rounded-full font-sans font-bold text-lg hover:bg-black/80 transition-colors shadow-2xl hover:-translate-y-1 duration-300"
+            <InteractiveHoverButton
+              data-cal-link="jaitanpuri/vyromedia"
+              data-cal-namespace="vyromedia"
+              data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
             >
               Get a Website Quote
-            </a>
+            </InteractiveHoverButton>
             <span className="font-sans text-sm font-semibold text-[#737373] uppercase tracking-widest">
               Starting from ₹15,000
             </span>
