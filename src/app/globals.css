@@ -29,6 +29,12 @@
     from { transform: translateY(0); }
     to { transform: translateY(calc(-100% - var(--gap, 1rem))); }
   }
+
+  /* Animated Gradient Text */
+  --animate-gradient: gradient 8s linear infinite;
+  @keyframes gradient {
+    to { background-position: var(--bg-size, 300%) 0; }
+  }
 }
 
 @layer base {

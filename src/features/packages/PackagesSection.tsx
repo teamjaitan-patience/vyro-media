@@ -2,6 +2,7 @@
 
 import { BlurFade } from "@/components/magic-ui/blur-fade";
 import { InteractiveHoverButton } from "@/components/magic-ui/interactive-hover-button";
+import { AnimatedGradientText } from "@/components/magic-ui/animated-gradient-text";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import Image from "next/image";
@@ -129,9 +130,20 @@ export function PackagesSection() {
             >
               Get a Website Quote
             </InteractiveHoverButton>
-            <span className="font-sans text-sm font-semibold text-[#737373] uppercase tracking-widest">
-              Starting from ₹15,000
-            </span>
+            <div className="group relative flex items-center justify-center rounded-full px-10 py-5 shadow-[inset_0_-8px_10px_#8fdfff1f] transition-all duration-300 hover:scale-105 hover:shadow-[inset_0_-5px_10px_#8fdfff3f]">
+              <span className="animate-gradient absolute inset-0 block h-full w-full rounded-[inherit] bg-[linear-gradient(to_right,#ffaa4080,#9c40ff80,#ffaa4080)] bg-[length:300%_100%] p-[1px]" style={{
+                WebkitMask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+                WebkitMaskComposite: "destination-out",
+                mask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+                maskComposite: "subtract",
+                WebkitClipPath: "padding-box",
+              }} />
+              <AnimatedGradientText 
+                className="font-sans text-lg font-bold uppercase tracking-widest cursor-default"
+              >
+                Starting from ₹15,000
+              </AnimatedGradientText>
+            </div>
           </div>
         </BlurFade>
       </div>

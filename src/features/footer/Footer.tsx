@@ -90,9 +90,8 @@ export function Footer() {
             {/* Socials */}
             <div className="flex flex-col gap-4">
               <h4 className="font-sans font-bold text-sm text-[#0A0A0A] mb-2">Socials</h4>
-              <a href="https://instagram.com" target="_blank" rel="noreferrer" className="font-sans text-sm text-[#737373] hover:text-[#0A0A0A] transition-colors">Instagram</a>
-              <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="font-sans text-sm text-[#737373] hover:text-[#0A0A0A] transition-colors">LinkedIn</a>
-              <a href="https://twitter.com" target="_blank" rel="noreferrer" className="font-sans text-sm text-[#737373] hover:text-[#0A0A0A] transition-colors">Twitter</a>
+              <a href="https://www.instagram.com/vyromedia.in?igsh=ZHE2amh3MGJ0NmN6&utm_source=qr" target="_blank" rel="noreferrer" className="font-sans text-sm text-[#737373] hover:text-[#0A0A0A] transition-colors">Instagram</a>
+              <a href="https://www.linkedin.com/company/vyromedia" target="_blank" rel="noreferrer" className="font-sans text-sm text-[#737373] hover:text-[#0A0A0A] transition-colors">LinkedIn</a>
             </div>
 
             {/* Legal */}
