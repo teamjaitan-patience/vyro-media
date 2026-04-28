@@ -17,7 +17,7 @@ export function StatsTicker() {
     <div className="w-full bg-[#f4f4f5] border-y border-[#e5e5e5] py-4 overflow-hidden relative">
       <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-[#f4f4f5] to-transparent z-10"></div>
       <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[#f4f4f5] to-transparent z-10"></div>
-      <Marquee pauseOnHover className="[--duration:20s]">
+      <Marquee pauseOnHover style={{ "--duration": "20s" } as React.CSSProperties}>
         {stats.map((stat, i) => (
           <div key={i} className="flex items-center gap-8 mx-4">
             <span className="font-sans text-sm font-semibold tracking-widest uppercase text-[#0A0A0A]">

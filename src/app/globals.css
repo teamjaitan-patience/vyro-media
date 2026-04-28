@@ -17,17 +17,17 @@
   --text-10xl: 10rem;
 
   /* Marquee Animations */
-  --animate-marquee: marquee var(--duration) linear infinite;
-  --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
+  --animate-marquee: marquee var(--duration, 40s) linear infinite;
+  --animate-marquee-vertical: marquee-vertical var(--duration, 40s) linear infinite;
 
   @keyframes marquee {
     from { transform: translateX(0); }
-    to { transform: translateX(calc(-100% - var(--gap))); }
+    to { transform: translateX(calc(-100% - var(--gap, 1rem))); }
   }
 
   @keyframes marquee-vertical {
     from { transform: translateY(0); }
-    to { transform: translateY(calc(-100% - var(--gap))); }
+    to { transform: translateY(calc(-100% - var(--gap, 1rem))); }
   }
 }
 
