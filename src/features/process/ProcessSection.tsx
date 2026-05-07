@@ -40,12 +40,12 @@ export function ProcessSection() {
 
         <div className="grid md:grid-cols-2 gap-x-20 gap-y-24">
           {steps.map((step, idx) => (
-            <BlurFade key={step.number} delay={0.2 + idx * 0.1} inView className="relative">
-              <span className="font-serif italic text-6xl md:text-8xl text-[#333333] absolute -top-10 -left-6 z-0 select-none">
+            <BlurFade key={step.number} delay={0.2 + idx * 0.1} inView className="flex flex-col gap-4 border-t border-[#333333] pt-8 md:pt-10">
+              <span className="font-serif italic text-4xl md:text-5xl text-[#737373] select-none">
                 {step.number}
               </span>
-              <div className="relative z-10 pt-4 border-t border-[#333333]">
-                <h3 className="font-sans text-2xl md:text-3xl font-bold mb-6">
+              <div>
+                <h3 className="font-sans text-2xl md:text-3xl font-bold mb-4">
                   {step.title}
                 </h3>
                 <p className="font-sans text-[#a3a3a3] text-lg leading-relaxed">

@@ -101,12 +101,12 @@ export function HeroSection() {
           </div>
         </motion.div>
 
-        {/* Massive Video Modal */}
+        {/* Massive Video Modal - Hidden for now */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, delay: 1.2, ease: [0.16, 1, 0.3, 1] }}
-          className="relative w-full max-w-[1200px] aspect-[16/9] md:aspect-[21/9] rounded-2xl md:rounded-[2rem] overflow-hidden bg-[#0A0A0A] shadow-2xl"
+          className="hidden relative w-full max-w-[1200px] aspect-[16/9] md:aspect-[21/9] rounded-2xl md:rounded-[2rem] overflow-hidden bg-[#0A0A0A] shadow-2xl"
         >
           <BorderBeam size={300} duration={12} delay={2} colorFrom="#ffffff" colorTo="transparent" />
           

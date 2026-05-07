@@ -17,7 +17,7 @@ const VIDEOS = [
   { id: "vwHebOinZbM", title: "Trending Content" },
 ];
 
-function VideoCarouselCard({ video, containerRef }: { video: typeof VIDEOS[0], containerRef: React.RefObject<HTMLDivElement | null> }) {
+function VideoCarouselCard({ video, index, total, containerRef }: { video: typeof VIDEOS[0], index: number, total: number, containerRef: React.RefObject<HTMLDivElement | null> }) {
   const cardRef = useRef<HTMLDivElement>(null);
 
   const { scrollXProgress } = useScroll({
@@ -29,8 +29,6 @@ function VideoCarouselCard({ video, containerRef }: { video: typeof VIDEOS[0], c
 
   // Rotate between 15deg to 0deg to -15deg
   const rotateZ = useTransform(scrollXProgress, [0, 0.5, 1], [15, 0, -15]);
-  // Move down by 100px on the edges
-  const y = useTransform(scrollXProgress, [0, 0.5, 1], [100, 0, 100]);
   const scale = useTransform(scrollXProgress, [0, 0.5, 1], [0.85, 1, 0.85]);
   const opacity = useTransform(scrollXProgress, [0, 0.5, 1], [0.5, 1, 0.5]);
   const zIndex = useTransform(scrollXProgress, [0, 0.5, 1], [10, 50, 10]);
@@ -39,7 +37,7 @@ function VideoCarouselCard({ video, containerRef }: { video: typeof VIDEOS[0], c
   return (
     <motion.div
       ref={cardRef}
-      style={{ rotateZ, y, scale, opacity, zIndex }}
+      style={{ rotateZ, scale, opacity, zIndex }}
       className="relative shrink-0 w-[85vw] md:w-[600px] lg:w-[800px] aspect-video snap-center group"
     >
       {/* Inner Image Container */}
@@ -80,13 +78,33 @@ function VideoCarouselCard({ video, containerRef }: { video: typeof VIDEOS[0], c
 
       </div>
 
-      {/* Floating Drag Badge */}
-      <motion.div
-        style={{ opacity: dragBadgeOpacity }}
-        className="absolute top-1/2 -right-6 md:-right-10 -translate-y-1/2 w-[72px] h-[72px] bg-white text-[#0A0A0A] rounded-full flex items-center justify-center font-sans font-bold text-[10px] tracking-widest uppercase shadow-2xl pointer-events-none z-50 hidden md:flex"
-      >
-        Drag
-      </motion.div>
+      {/* Floating Swipe Badge - Right */}
+      {index < total - 1 && (
+        <motion.div
+          style={{ opacity: dragBadgeOpacity }}
+          className="absolute top-1/2 -right-4 md:-right-12 -translate-y-1/2 px-3 py-1.5 md:px-5 md:py-2.5 bg-white text-[#0A0A0A] rounded-full flex items-center gap-1 md:gap-2 font-sans font-bold text-[9px] md:text-[10px] tracking-widest uppercase shadow-2xl pointer-events-none z-50 whitespace-nowrap"
+        >
+          <span>Swipe</span>
+          <svg className="w-3 h-3 md:w-4 md:h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M5 12h14"/>
+            <path d="m12 5 7 7-7 7"/>
+          </svg>
+        </motion.div>
+      )}
+
+      {/* Floating Swipe Badge - Left */}
+      {index > 0 && (
+        <motion.div
+          style={{ opacity: dragBadgeOpacity }}
+          className="absolute top-1/2 -left-4 md:-left-12 -translate-y-1/2 px-3 py-1.5 md:px-5 md:py-2.5 bg-white text-[#0A0A0A] rounded-full flex items-center gap-1 md:gap-2 font-sans font-bold text-[9px] md:text-[10px] tracking-widest uppercase shadow-2xl pointer-events-none z-50 whitespace-nowrap"
+        >
+          <svg className="w-3 h-3 md:w-4 md:h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M19 12H5"/>
+            <path d="m12 19-7-7 7-7"/>
+          </svg>
+          <span>Swipe</span>
+        </motion.div>
+      )}
     </motion.div>
   );
 }
@@ -130,8 +148,8 @@ export function TestimonialsSection() {
             className="flex gap-10 md:gap-20 overflow-x-auto snap-x snap-mandatory px-[7.5vw] md:px-[calc(50vw-300px)] lg:px-[calc(50vw-400px)] py-10 relative z-20 [&::-webkit-scrollbar]:hidden"
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
-            {VIDEOS.map((video) => (
-              <VideoCarouselCard key={video.id} video={video} containerRef={containerRef} />
+            {VIDEOS.map((video, idx) => (
+              <VideoCarouselCard key={video.id} video={video} index={idx} total={VIDEOS.length} containerRef={containerRef} />
             ))}
           </div>
         </div>
