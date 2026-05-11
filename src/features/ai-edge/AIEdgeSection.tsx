@@ -11,7 +11,7 @@ export function AIEdgeSection() {
             <span className="font-sans text-xs font-bold tracking-[0.25em] uppercase text-[#737373] mb-12 block">
               THE VYRO DIFFERENCE
             </span>
-            <h2 className="font-serif italic text-5xl md:text-7xl text-[#0A0A0A] mb-12">
+            <h2 className="font-serif text-5xl md:text-7xl text-[#0A0A0A] mb-12">
               We're the only studio in the room that also builds AI Agents.
             </h2>
           </BlurFade>
@@ -42,7 +42,7 @@ export function AIEdgeSection() {
 
         <BlurFade delay={0.3} inView>
           <div className="relative aspect-square max-w-lg mx-auto bg-[#f4f4f5] rounded-3xl flex items-center justify-center p-12 text-center">
-            <p className="font-serif italic text-3xl md:text-4xl text-[#0A0A0A] leading-relaxed">
+            <p className="font-serif text-3xl md:text-4xl text-[#0A0A0A] leading-relaxed">
               "We don't use AI to replace the human stuff. We use it to protect it."
             </p>
           </div>

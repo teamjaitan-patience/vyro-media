@@ -41,7 +41,7 @@ export function AudienceSection() {
         <div className="grid md:grid-cols-2 gap-px bg-[#e5e5e5] border border-[#e5e5e5]">
           {audiences.map((item, idx) => (
             <BlurFade key={idx} delay={0.2 + idx * 0.1} inView className="bg-white p-12 lg:p-16 flex flex-col group hover:bg-[#f4f4f5] transition-colors duration-500">
-              <h3 className="font-serif italic text-4xl md:text-5xl lg:text-6xl text-[#0A0A0A] mb-6">
+              <h3 className="font-serif text-4xl md:text-5xl lg:text-6xl text-[#0A0A0A] mb-6">
                 {item.title}
               </h3>
               <p className="font-sans text-[#737373] text-lg lg:text-xl leading-relaxed max-w-md mb-12 flex-1">

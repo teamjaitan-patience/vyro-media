@@ -24,7 +24,7 @@ export function FooterCTA() {
         </BlurFade>
 
         <BlurFade delay={0.2} inView>
-          <h2 className="font-serif italic text-6xl md:text-8xl lg:text-[10rem] leading-[0.85] tracking-tight mb-12">
+          <h2 className="font-serif text-6xl md:text-8xl lg:text-[10rem] leading-[0.85] tracking-tight mb-12">
             Ready to roll?
           </h2>
         </BlurFade>

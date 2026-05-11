@@ -41,7 +41,7 @@ export function ProcessSection() {
         <div className="grid md:grid-cols-2 gap-x-20 gap-y-24">
           {steps.map((step, idx) => (
             <BlurFade key={step.number} delay={0.2 + idx * 0.1} inView className="flex flex-col gap-4 border-t border-[#333333] pt-8 md:pt-10">
-              <span className="font-serif italic text-4xl md:text-5xl text-[#737373] select-none">
+              <span className="font-serif text-4xl md:text-5xl text-[#737373] select-none">
                 {step.number}
               </span>
               <div>

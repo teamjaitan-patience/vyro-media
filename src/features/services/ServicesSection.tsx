@@ -65,7 +65,7 @@ export function ServicesSection() {
                     <span className={`font-sans font-bold text-lg md:text-xl transition-colors ${isActive ? 'text-[#0A0A0A]' : 'text-[#a3a3a3] group-hover:text-[#0A0A0A]'}`}>
                       {service.id}
                     </span>
-                    <h3 className={`font-serif italic text-3xl md:text-4xl lg:text-5xl transition-colors flex-1 ${isActive ? 'text-[#0A0A0A]' : 'text-[#737373] group-hover:text-[#0A0A0A]'}`}>
+                    <h3 className={`font-serif text-3xl md:text-4xl lg:text-5xl transition-colors flex-1 ${isActive ? 'text-[#0A0A0A]' : 'text-[#737373] group-hover:text-[#0A0A0A]'}`}>
                       {service.title}
                     </h3>
                   </div>

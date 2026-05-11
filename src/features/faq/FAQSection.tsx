@@ -25,7 +25,7 @@ export function FAQSection() {
           <span className="font-sans text-xs font-bold tracking-[0.25em] uppercase text-[#737373] mb-12 block">
             FAQ
           </span>
-          <h2 className="font-serif italic text-5xl md:text-7xl text-[#0A0A0A] mb-20">
+          <h2 className="font-serif text-5xl md:text-7xl text-[#0A0A0A] mb-20">
             Details matter.
           </h2>
         </BlurFade>

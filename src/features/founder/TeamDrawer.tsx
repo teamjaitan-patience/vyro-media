@@ -101,7 +101,7 @@ export function TeamDrawer({ isOpen, onClose }: { isOpen: boolean; onClose: () =
                 <span className="font-sans text-xs font-bold tracking-[0.25em] uppercase text-[#737373] mb-6 block">
                   THE PEOPLE BEHIND THE FRAME
                 </span>
-                <h2 className="font-serif italic text-4xl md:text-5xl lg:text-6xl text-white mb-6 leading-tight max-w-2xl">
+                <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-white mb-6 leading-tight max-w-2xl">
                   Seven People. One Obsession. Zero Compromises.
                 </h2>
                 <p className="font-sans text-lg text-[#a3a3a3] max-w-xl leading-relaxed">
@@ -152,13 +152,13 @@ export function TeamDrawer({ isOpen, onClose }: { isOpen: boolean; onClose: () =
                 <span className="font-sans text-xs font-bold tracking-[0.25em] uppercase text-[#737373] mb-6 block">
                   AND THEN SOME
                 </span>
-                <h3 className="font-serif italic text-3xl md:text-4xl text-white mb-8">
+                <h3 className="font-serif text-3xl md:text-4xl text-white mb-8">
                   The Core Is Seven. The Bench Goes Nationwide.
                 </h3>
                 <p className="text-[#a3a3a3] font-sans text-sm md:text-base leading-relaxed max-w-2xl mx-auto mb-12">
                   Behind the core crew sits a deep network of cinematographers, editors, photographers, motion designers, sound engineers, and on-ground production talent stationed across India. Mumbai. Bangalore. Jaipur. Hyderabad. Chennai. Wherever your story needs to live, we already have someone in that city who is genuinely great at what they do. You bring the vision. We bring the right person for it, every single time.
                 </p>
-                <p className="font-serif italic text-xl md:text-2xl text-white/40 max-w-lg mx-auto">
+                <p className="font-serif text-xl md:text-2xl text-white/40 max-w-lg mx-auto">
                   The right talent. The right city. The right moment. Every time.
                 </p>
               </div>

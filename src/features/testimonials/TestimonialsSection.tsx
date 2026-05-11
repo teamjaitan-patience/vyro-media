@@ -119,7 +119,7 @@ export function TestimonialsSection() {
           <span className="font-sans text-xs font-bold tracking-[0.25em] uppercase text-[#737373] mb-8 block">
             SELECTED WORK
           </span>
-          <h2 className="font-serif italic text-5xl md:text-7xl lg:text-[6rem] text-[#0A0A0A] leading-[0.9] mb-12 max-w-5xl mx-auto">
+          <h2 className="font-serif text-5xl md:text-7xl lg:text-[6rem] text-[#0A0A0A] leading-[0.9] mb-12 max-w-5xl mx-auto">
             Every Frame is Intentional.
           </h2>
         </BlurFade>

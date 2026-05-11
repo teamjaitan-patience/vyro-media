@@ -17,7 +17,7 @@ export function ManifestoSection() {
 
         <div className="space-y-12 md:space-y-16">
             <TextReveal 
-              className="font-serif italic font-normal text-4xl md:text-6xl lg:text-7xl leading-[1.1] tracking-tight"
+              className="font-serif font-normal text-4xl md:text-6xl lg:text-7xl leading-[1.1] tracking-tight"
               text="Most brands look exactly like everyone else." 
             />
 

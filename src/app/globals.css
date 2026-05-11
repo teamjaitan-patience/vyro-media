@@ -74,9 +74,7 @@
     @apply font-sans font-extrabold tracking-tighter leading-[0.9] text-5xl md:text-7xl lg:text-9xl;
   }
 
-  .editorial-italic {
-    @apply font-serif italic font-normal tracking-tight leading-[0.9];
-  }
+
 }
 
 /* Base resets */

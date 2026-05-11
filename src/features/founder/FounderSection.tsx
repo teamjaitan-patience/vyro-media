@@ -68,7 +68,7 @@ export function FounderSection() {
             <span className="font-sans text-xs font-bold tracking-[0.25em] uppercase text-[#737373] mb-8 block">
               THE PEOPLE BEHIND THE FRAME
             </span>
-            <h2 className="font-serif italic text-5xl md:text-7xl text-[#0A0A0A] mb-12">
+            <h2 className="font-serif text-5xl md:text-7xl text-[#0A0A0A] mb-12">
               Built by Obsessives.
             </h2>
           </BlurFade>

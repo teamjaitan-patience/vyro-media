@@ -11,7 +11,7 @@ export default function CookiePolicyPage() {
       <Navbar />
       
       <article className="pt-40 pb-24 px-6 md:px-12 max-w-4xl mx-auto font-sans text-[#0A0A0A]">
-        <h1 className="font-serif italic text-5xl md:text-6xl mb-6">Cookie Policy</h1>
+        <h1 className="font-serif text-5xl md:text-6xl mb-6">Cookie Policy</h1>
         
         <div className="flex flex-col gap-2 text-[#737373] mb-16 text-sm font-semibold tracking-wider uppercase">
           <p>Effective Date: 1 January 2025</p>

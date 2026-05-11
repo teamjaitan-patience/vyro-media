@@ -46,7 +46,7 @@ export function HeroSection() {
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
           className="mb-6 md:mb-10"
         >
-          <p className="font-serif italic text-2xl md:text-3xl text-[#0A0A0A] max-w-2xl mx-auto">
+          <p className="font-serif text-2xl md:text-3xl text-[#0A0A0A] max-w-2xl mx-auto">
             "We Make You Look Like the Main Character"
           </p>
         </motion.div>
@@ -67,7 +67,7 @@ export function HeroSection() {
             <FlipWords 
               words={words} 
               duration={2500}
-              className="font-serif italic font-normal tracking-tight text-5xl sm:text-6xl md:text-[7rem] lg:text-[10rem] leading-[1] md:leading-[0.8] text-[#0A0A0A] !text-[#0A0A0A] dark:!text-[#0A0A0A] text-center"
+              className="font-serif font-normal tracking-tight text-5xl sm:text-6xl md:text-[7rem] lg:text-[10rem] leading-[1] md:leading-[0.8] text-[#0A0A0A] !text-[#0A0A0A] dark:!text-[#0A0A0A] text-center"
             />
           </motion.div>
         </div>
