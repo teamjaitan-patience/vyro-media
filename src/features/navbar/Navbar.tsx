@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 const navLinks = [
   { label: "Work", href: "/#work" },
@@ -11,7 +12,7 @@ const navLinks = [
   { label: "About", href: "/#about" },
 ];
 
-export function Navbar() {
+export function Navbar({ theme = "light" }: { theme?: "light" | "dark" }) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -32,20 +33,24 @@ export function Navbar() {
         <div
           className={`flex items-center justify-between px-6 py-3 rounded-full transition-all duration-500 ${
             scrolled
-              ? "bg-white/80 backdrop-blur-2xl border border-[#e5e5e5] shadow-lg shadow-black/5"
-              : "bg-transparent border border-transparent"
+              ? theme === "dark"
+                ? "bg-[#0A0A0A]/85 backdrop-blur-2xl border border-zinc-800 shadow-lg shadow-black/40 text-white"
+                : "bg-white/80 backdrop-blur-2xl border border-[#e5e5e5] shadow-lg shadow-black/5 text-[#0A0A0A]"
+              : theme === "dark"
+                ? "bg-transparent border border-transparent text-white"
+                : "bg-transparent border border-transparent text-[#0A0A0A]"
           }`}
         >
           {/* Logo */}
-          <a href="/" className="flex items-center">
+          <Link href="/" className="flex items-center">
             <Image 
-              src="/VYRO_logo.png" 
+              src={theme === "dark" ? "/VYRO_logo_white.png" : "/VYRO_logo.png"} 
               alt="VYRO Media" 
               width={200} 
               height={66} 
               className="h-8 md:h-10 w-auto object-contain" 
             />
-          </a>
+          </Link>
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-8 absolute left-1/2 -translate-x-1/2">
@@ -53,7 +58,11 @@ export function Navbar() {
               <a
                 key={link.label}
                 href={link.href}
-                className="text-sm font-semibold text-[#737373] hover:text-[#0A0A0A] transition-colors duration-300"
+                className={`text-sm font-semibold transition-colors duration-300 ${
+                  theme === "dark"
+                    ? "text-[#a3a3a3] hover:text-[#FFFFFF]"
+                    : "text-[#737373] hover:text-[#0A0A0A]"
+                }`}
               >
                 {link.label}
               </a>
@@ -65,14 +74,18 @@ export function Navbar() {
             data-cal-link="jaitanpuri/vyromedia"
             data-cal-namespace="vyromedia"
             data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
-            className="hidden md:block bg-[#0A0A0A] text-white px-5 py-2.5 rounded-full text-xs font-bold tracking-wide hover:bg-[#1a1a1a] transition-colors cursor-pointer"
+            className={`hidden md:block px-5 py-2.5 rounded-full text-xs font-bold tracking-wide transition-colors cursor-pointer ${
+              theme === "dark"
+                ? "bg-[#F5F0E8] text-[#0A0A0A] hover:bg-[#e5dfd6]"
+                : "bg-[#0A0A0A] text-white hover:bg-[#1a1a1a]"
+            }`}
           >
             START PROJECT
           </button>
 
           {/* Mobile Menu Toggle */}
           <button
-            className="md:hidden p-2 text-[#0A0A0A]"
+            className={`md:hidden p-2 transition-colors ${theme === "dark" ? "text-white" : "text-[#0A0A0A]"}`}
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Toggle menu"
           >
@@ -89,7 +102,9 @@ export function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 bg-white/98 backdrop-blur-xl pt-24 px-6 flex flex-col"
+            className={`fixed inset-0 z-40 backdrop-blur-xl pt-24 px-6 flex flex-col ${
+              theme === "dark" ? "bg-[#0A0A0A]/98 text-white" : "bg-white/98 text-[#0A0A0A]"
+            }`}
           >
             <nav className="flex flex-col gap-6 mb-8">
               {navLinks.map((link) => (
@@ -97,7 +112,11 @@ export function Navbar() {
                   key={link.label}
                   href={link.href}
                   onClick={() => setMenuOpen(false)}
-                  className="font-display text-4xl font-bold text-[#111111] hover:text-[#C8A96E] transition-colors duration-200"
+                  className={`font-display text-4xl font-bold transition-colors duration-200 ${
+                    theme === "dark"
+                      ? "text-white hover:text-[#F5F0E8]"
+                      : "text-[#111111] hover:text-[#C8A96E]"
+                  }`}
                 >
                   {link.label}
                 </a>
@@ -108,7 +127,11 @@ export function Navbar() {
               data-cal-link="jaitanpuri/vyromedia"
               data-cal-namespace="vyromedia"
               data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
-              className="mt-4 bg-[#0A0A0A] text-white px-8 py-4 rounded-full text-center font-sans font-bold text-lg tracking-wide hover:bg-[#1a1a1a] transition-colors cursor-pointer w-full"
+              className={`mt-4 px-8 py-4 rounded-full text-center font-sans font-bold text-lg tracking-wide transition-colors cursor-pointer w-full ${
+                theme === "dark"
+                  ? "bg-[#F5F0E8] text-[#0A0A0A] hover:bg-[#e5dfd6]"
+                  : "bg-[#0A0A0A] text-white hover:bg-[#1a1a1a]"
+              }`}
             >
               Start a Project →
             </button>

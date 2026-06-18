@@ -1,8 +1,17 @@
+import { redirect } from "next/navigation";
 import Home from "../page";
 
-// We render the Home page exactly as is. The `ServicesSection` component
-// checks `window.location.pathname` on mount to automatically open
-// the correct accordion and scroll down.
-export default function ServicePage() {
+interface Props {
+  params: Promise<{ service: string }>;
+}
+
+export default async function ServicePage({ params }: Props) {
+  const { service } = await params;
+  const decodedService = decodeURIComponent(service);
+
+  if (decodedService === "High-End Short Form") {
+    redirect("/short-form");
+  }
+
   return <Home />;
 }
