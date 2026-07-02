@@ -5,7 +5,7 @@ import { ServiceCategory, ServiceMedia } from "./servicesData";
 import { useRef } from "react";
 import Image from "next/image";
 
-function MediaCard({ media, index, total, containerRef }: { media: ServiceMedia, index: number, total: number, containerRef: React.RefObject<HTMLDivElement | null> }) {
+export function MediaCard({ media, index, total, containerRef }: { media: ServiceMedia, index: number, total: number, containerRef: React.RefObject<HTMLDivElement | null> }) {
   const cardRef = useRef<HTMLDivElement>(null);
 
   const { scrollXProgress } = useScroll({
@@ -150,7 +150,7 @@ export function ServiceSlider({ category }: { category: ServiceCategory }) {
       {/* Scrolling Container */}
       <div 
         ref={containerRef}
-        className="flex gap-10 md:gap-20 overflow-x-auto snap-x snap-mandatory px-[7.5vw] md:px-[calc(50vw-250px)] lg:px-[calc(50vw-300px)] py-10 relative z-20 [&::-webkit-scrollbar]:hidden"
+        className="flex items-center gap-10 md:gap-20 overflow-x-auto snap-x snap-mandatory px-[7.5vw] md:px-[calc(50vw-250px)] lg:px-[calc(50vw-300px)] py-10 relative z-20 [&::-webkit-scrollbar]:hidden"
         style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
       >
         {category.media.map((media, idx) => (

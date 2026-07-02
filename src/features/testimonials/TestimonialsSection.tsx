@@ -1,113 +1,30 @@
 "use client";
 
 import { BlurFade } from "@/components/magic-ui/blur-fade";
-import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import Image from "next/image";
+import { MediaCard } from "@/features/services/ServiceSlider";
+import { ServiceMedia } from "@/features/services/servicesData";
 
-const VIDEOS = [
-  { id: "hfUesj-2m8U", title: "Brand Film" },
-  { id: "JfvavSfr9hk", title: "Commercial" },
-  { id: "W4wMkKqzf3Q", title: "Creative Short" },
-  { id: "I6L-qWew04I", title: "Cinematic Reel" },
-  { id: "XYEM9c5adkI", title: "Social Highlight" },
-  { id: "M9L74ktwL7I", title: "Digital Ad" },
-  { id: "6ZBn7vkg_Ao", title: "Visual Story" },
-  { id: "mCW2M0WrDJY", title: "Brand Documentary" },
-  { id: "vwHebOinZbM", title: "Trending Content" },
+const MIXED_WORK_MEDIA: ServiceMedia[] = [
+  // First three requested videos (YouTube long-form)
+  { id: "n9wASYpOJ30", type: "youtube", title: "Nishu & Mahi Episode", url: "https://youtu.be/n9wASYpOJ30" },
+  { id: "1wP8ZYSfdEk", type: "youtube", title: "Podcast Episode 1", url: "https://youtu.be/1wP8ZYSfdEk" },
+  { id: "dKXv8B1h5c8", type: "youtube", title: "Podcast Episode 2", url: "https://youtu.be/dKXv8B1h5c8" },
+  
+  // Followed by the next batch of requested videos and shorts
+  { id: "OzMbkIL9aLY", type: "youtube", title: "Video Feature", url: "https://youtu.be/OzMbkIL9aLY" },
+  { id: "-skZr31sJGg", type: "youtube-short", title: "Short Form Content 1", url: "https://youtube.com/shorts/-skZr31sJGg" },
+  { id: "3Hw1NnaQzXM", type: "youtube-short", title: "Short Form Content 2", url: "https://youtube.com/shorts/3Hw1NnaQzXM" },
+
+  // Rest of the mixed work (websites, designs, etc.)
+  { id: "pratham", type: "website", title: "Pratham Kochhar", url: "https://www.prathamkochhar.com/", thumbnail: "/pratham.png" },
+  { id: "thumb1", type: "image", title: "Design", thumbnail: "/thumbnails/5tGk7ceu0hk2GEUF7D54qQ8lE.avif" },
+  { id: "5SAv9-umwbk", type: "youtube", title: "Chaipaani", url: "https://youtu.be/5SAv9-umwbk" },
+  { id: "CzYAICdI5Ln", type: "instagram", title: "Instagram Reel", url: "https://www.instagram.com/p/CzYAICdI5Ln/", thumbnail: "/thumbnails/instagram/CzYAICdI5Ln.jpg" },
+  { id: "exotica", type: "website", title: "Exotica Productions", url: "https://www.exoticaproductions.com/", thumbnail: "/exotica.png" },
+  { id: "thumb12", type: "image", title: "Design", thumbnail: "/thumbnails/Rp3FQ6CNPaLqDjPvi41XGWpza0.avif" },
+  { id: "thumb15", type: "image", title: "Design", thumbnail: "/thumbnails/g1z2XByat4LLK2EQrvvH6C7DQY.avif" },
 ];
-
-function VideoCarouselCard({ video, index, total, containerRef }: { video: typeof VIDEOS[0], index: number, total: number, containerRef: React.RefObject<HTMLDivElement | null> }) {
-  const cardRef = useRef<HTMLDivElement>(null);
-
-  const { scrollXProgress } = useScroll({
-    container: containerRef,
-    target: cardRef,
-    axis: "x",
-    offset: ["start end", "end start"]
-  });
-
-  // Rotate between 15deg to 0deg to -15deg
-  const rotateZ = useTransform(scrollXProgress, [0, 0.5, 1], [15, 0, -15]);
-  const scale = useTransform(scrollXProgress, [0, 0.5, 1], [0.85, 1, 0.85]);
-  const opacity = useTransform(scrollXProgress, [0, 0.5, 1], [0.5, 1, 0.5]);
-  const zIndex = useTransform(scrollXProgress, [0, 0.5, 1], [10, 50, 10]);
-  const dragBadgeOpacity = useTransform(scrollXProgress, [0, 0.4, 0.5, 0.6, 1], [0, 0, 1, 0, 0]);
-
-  return (
-    <motion.div
-      ref={cardRef}
-      style={{ rotateZ, scale, opacity, zIndex }}
-      className="relative shrink-0 w-[85vw] md:w-[600px] lg:w-[800px] aspect-video snap-center group"
-    >
-      {/* Inner Image Container */}
-      <div className="absolute inset-0 bg-[#0A0A0A] rounded-[2rem] overflow-hidden shadow-2xl border border-[#262626]">
-        
-        <Image
-          src={`https://img.youtube.com/vi/${video.id}/maxresdefault.jpg`}
-          alt={video.title}
-          fill
-          className="object-cover transition-transform duration-700 group-hover:scale-105 pointer-events-none opacity-80"
-          onError={(e) => {
-             // Fallback to high quality if maxres isn't available
-            e.currentTarget.src = `https://img.youtube.com/vi/${video.id}/hqdefault.jpg`;
-          }}
-        />
-        
-        {/* Play Button Icon */}
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10 opacity-100 group-hover:opacity-0 transition-opacity duration-300">
-           <div className="w-16 h-16 md:w-20 md:h-20 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center pl-1 border border-white/30">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
-                 <path d="M5 3L19 12L5 21V3Z" />
-              </svg>
-           </div>
-        </div>
-        
-        {/* Overlay for interaction */}
-        <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none z-20">
-          <a 
-            href={`https://www.youtube.com/watch?v=${video.id}`} 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="bg-white text-[#0A0A0A] px-6 py-3 rounded-full font-sans font-bold text-sm tracking-widest uppercase hover:bg-[#f4f4f5] transition-colors pointer-events-auto flex items-center gap-2 hover:scale-105"
-          >
-            Watch Video <span className="text-lg leading-none">↗</span>
-          </a>
-        </div>
-
-
-      </div>
-
-      {/* Floating Swipe Badge - Right */}
-      {index < total - 1 && (
-        <motion.div
-          style={{ opacity: dragBadgeOpacity }}
-          className="absolute top-1/2 -right-4 md:-right-12 -translate-y-1/2 px-3 py-1.5 md:px-5 md:py-2.5 bg-white text-[#0A0A0A] rounded-full flex items-center gap-1 md:gap-2 font-sans font-bold text-[9px] md:text-[10px] tracking-widest uppercase shadow-2xl pointer-events-none z-50 whitespace-nowrap"
-        >
-          <span>Swipe</span>
-          <svg className="w-3 h-3 md:w-4 md:h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M5 12h14"/>
-            <path d="m12 5 7 7-7 7"/>
-          </svg>
-        </motion.div>
-      )}
-
-      {/* Floating Swipe Badge - Left */}
-      {index > 0 && (
-        <motion.div
-          style={{ opacity: dragBadgeOpacity }}
-          className="absolute top-1/2 -left-4 md:-left-12 -translate-y-1/2 px-3 py-1.5 md:px-5 md:py-2.5 bg-white text-[#0A0A0A] rounded-full flex items-center gap-1 md:gap-2 font-sans font-bold text-[9px] md:text-[10px] tracking-widest uppercase shadow-2xl pointer-events-none z-50 whitespace-nowrap"
-        >
-          <svg className="w-3 h-3 md:w-4 md:h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M19 12H5"/>
-            <path d="m12 19-7-7 7-7"/>
-          </svg>
-          <span>Swipe</span>
-        </motion.div>
-      )}
-    </motion.div>
-  );
-}
 
 export function TestimonialsSection() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -145,11 +62,11 @@ export function TestimonialsSection() {
           {/* Scrolling Container */}
           <div 
             ref={containerRef}
-            className="flex gap-10 md:gap-20 overflow-x-auto snap-x snap-mandatory px-[7.5vw] md:px-[calc(50vw-300px)] lg:px-[calc(50vw-400px)] py-10 relative z-20 [&::-webkit-scrollbar]:hidden"
+            className="flex items-center gap-10 md:gap-20 overflow-x-auto snap-x snap-mandatory px-[7.5vw] md:px-[calc(50vw-250px)] lg:px-[calc(50vw-300px)] py-10 relative z-20 [&::-webkit-scrollbar]:hidden"
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
-            {VIDEOS.map((video, idx) => (
-              <VideoCarouselCard key={video.id} video={video} index={idx} total={VIDEOS.length} containerRef={containerRef} />
+            {MIXED_WORK_MEDIA.map((media, idx) => (
+              <MediaCard key={`${media.id}-${idx}`} media={media} index={idx} total={MIXED_WORK_MEDIA.length} containerRef={containerRef} />
             ))}
           </div>
         </div>
